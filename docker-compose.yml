@@ -1,0 +1,38 @@
+version: '3.5'
+
+x-log-rotation: &log-rotation
+  options:
+    max-size: "200k"
+    max-file: "3"
+
+x-fl-environment: &fl-environment
+  PYTHONUNBUFFERED: 1
+  POSTGRES_DB: prop_db
+  POSTGRES_USER: prop_user
+  POSTGRES_PASSWORD: postpass
+
+services:
+  # fl-app:
+  #   environment:
+  #     <<: *fl-environment
+  #   logging:
+  #     <<: *log-rotation
+
+  cad-db:
+    image: postgres
+    volumes:
+      - fl-db-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - fl-net
+    restart: on-failure
+    environment:
+      <<: *fl-environment
+    logging:
+      <<: *log-rotation
+
+volumes:
+  fl-db-volume:
+networks:
+  fl-net:

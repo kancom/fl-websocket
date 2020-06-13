@@ -1,0 +1,47 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+# Install self as editable package.
+# This calls 'setup.py', so it uses package requirements defined there.
+# Editable mode allows pipenv to lock all required package in Pipfile.lock.
+# There is a small downside: '*.egg-info' folder is created in project root,
+# therefore, it is added to .gitignore.
+# lxml = "*"
+# redis = "*"
+# redis-collections = "*"
+# websocket-client = "*"
+# Django = "*"
+loguru = "*"
+aiohttp = "*"
+sqlalchemy = "*"
+sqlalchemy-aio = "*"
+psycopg2-binary = "*"
+pycryptodome = "*"
+
+[dev-packages]
+mock = "==2.*"
+wily = "==1.12.4"
+pre-commit = "*"
+autoflake = "*"
+flake8 = "*"
+epc = "*"
+importmagic = "*"
+python-language-server = {extras = ["all"],version = "*"}
+ptvsd = ">=4.2"
+pytest = "*"
+pytest-asyncio = "*"
+black = "==19.3b0"
+# ---
+# Due to poor pipenv's dependency resolution IPython requirements
+# should be directly specified for different platforms in order
+# to provide consistent Pipfile.lock
+ipython = "*"
+# ---
+
+[requires]
+python_version = "3.7"
+
+[scripts]

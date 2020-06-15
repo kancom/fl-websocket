@@ -24,7 +24,7 @@ VRF_SSL = False
 WS_TIMEOUT = None
 
 # logger.add(sys.stderr, level="DEBUG")
-AUTH_DATA = {"login": "WEBSOCKET", "password": "Trellus1", "firm": "TREL"}
+AUTH_DATA = {"login": "WEBSOCKET", "password": "trelus", "firm": "TREL"}
 CANNED_MSGS = {
     "auth": {"type": "challenge"},
     "login": {
